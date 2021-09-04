@@ -19,7 +19,7 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.1.0
-        env:
-          CR_TOKEN: "${{ secrets.TOKEN }}"
+      - name: Create index file
+        uses: yeouchien/helm3-action@f3a7c239c5c60777210c8e631839edf5dd3fa29c
+        with:
+          command: repo index --url https://pavelmikhailouski.github.io/charts ./gh-pages/charts
